@@ -14,7 +14,7 @@
             }
 
             #main-content {
-                margin-top: 30px;
+                margin-top: 20px;
             }
         }
 
@@ -42,13 +42,14 @@
     </style>
 </head>
 <body>
-    <button id="btn-print" onclick="window.print()">PRINT</button>
+    <a href="javascript:history.back()" style="position: absolute">kembali</a>
+    <button id="btn-print" onclick="cetak_pdf()">PRINT</button>
     {{-- Kop --}}
     <div id="main-content">
         <table align="center" style="width: 21cm; margin-bottom: 5px;">
             <tr>
                 <td>
-                    <img src="{{ asset('img/logo-pustikom-unj.jpg') }}" alt="Logo Pustikom" width="90" height="90">
+                    <img src="{{ asset('img/logo-unj.png') }}" alt="Logo UNJ" width="90" height="90">
                 </td>
                 <td>
                     <center>
@@ -57,9 +58,12 @@
                         <font size="2"><i>Jl. R.Mangun Muka Raya No.11, RT.11/RW.14, Rawamangun, Kec. Pulo Gadung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13220</i></font>
                     </center>
                 </td>
+                <td>
+                    <img src="{{ asset('img/logo-pustikom-unj.jpg') }}" alt="Logo Pustikom" width="90" height="90">
+                </td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                     <hr style="border-top: 1px solid black">
                 </td>
             </tr>
@@ -73,7 +77,8 @@
                     <table>
                         <tr>
                             <td>Nomor</td>
-                            <td> : 00/5/25.082.BBSM/2022</td>
+                            {{-- <td> : 00/5/25.082.BBSM/2022</td> --}}
+                            <td> : {{$component['nomor_surat']}}</td>
                         </tr>
                         <tr>
                             <td>Lamp</td>
@@ -123,8 +128,8 @@
                     <table border="1" cellpadding="0" cellspacing="0" align="center" style="width: 100%; text-align: center">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Nama</th>
+                                <th width="70">No</th>
+                                <th width="350">Nama</th>
                                 <th>NIS</th>
                             </tr>   
                         </thead>
@@ -134,6 +139,9 @@
                                     $no = 1;
                                 @endphp
                                 @for ($i = 0; $i < count($component['nama']); $i++)
+                                @if ($component['nama'][$i] == null)
+                                    @continue
+                                @endif
                                 <tr>
                                     <td>{{$no}}</td>
                                     <td>{{$component['nama'][$i]}}</td>
@@ -153,6 +161,9 @@
                     <p>
                         {{$component['penutup']}}
                     </p>
+                    <p>
+                        Demikian surat balasan yang dapat kami sampaikan atas perhatian dan kerja samanya, kami ucapkan terima kasih.
+                    </p>
                 </td>
             </tr>
         </table>
@@ -161,7 +172,7 @@
         {{-- Ttd --}}
         <table align="center" style="margin-top: 20px; width: 21cm">
             <tr>
-                <td><center>Hormat Kami,</center></td>
+                <td><center>Kepala Sub Bagian,</center></td>
             </tr>
             <tr>
                 <td height="70"></td>
@@ -177,5 +188,10 @@
         </table>
         {{-- End Ttd --}}
     </div>
+    <script>
+        function cetak_pdf(){
+            window.print();
+        }
+    </script>
 </body>
 </html>

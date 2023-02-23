@@ -83,7 +83,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="kepada" class="form-label">Kepada Yth.</label>
-                        <input type="text" class="form-control form-control-sm" name="kepada" id="kepada" value="Kepala Sekolah SMK">
+                        <input type="text" class="form-control form-control-sm" name="kepada" id="kepada" value="Kepala Sekolah {{$school->nama_sekolah}}">
                     </div>
                     <div class="mb-3">
                         <label for="di" class="form-label">Di -</label>
@@ -93,11 +93,11 @@
                 <div class="col-md-5">
                     <div class="mb-3">
                         <label for="pembuka" class="form-label">Body (Pembuka)</label>
-                        <textarea type="text" class="form-control form-control-sm" name="pembuka" id="pembuka" rows="6">Sehubungan dengan Surat Permohonan Praktik Kerja Lapangan (PKL) No: 689/UN 18.6/DT/2016 yang diajukan kepada kami oleh siswa bapak/ibu atas nama:</textarea>
+                        <textarea type="text" class="form-control form-control-sm" name="pembuka" id="pembuka" rows="6">Sehubungan dengan Surat Permohonan Praktik Kerja Lapangan (PKL) No: .../....../../.... yang diajukan kepada kami oleh siswa bapak/ibu atas nama:</textarea>
                     </div>
                     <div class="mb-3">
                         <label for="penutup" class="form-label">Penutup</label>
-                        <textarea type="text" class="form-control form-control-sm" name="penutup" id="penutup" rows="6">Dengan ini kami memberikan ijin kepada kedua mahasiswa tersebut diatas untuk melakukan Kegiatan Praktik Kerja Lapangan (PKL) dan kegiatan-kegiatan lain yang berhubungan dengan kegiatan tersebut diatas.</textarea>
+                        <textarea type="text" class="form-control form-control-sm" name="penutup" id="penutup" rows="6">Dengan ini kami memberikan ijin kepada siswa-siswa tersebut diatas untuk melakukan Kegiatan Praktik Kerja Lapangan (PKL) dengan instansi kami, semoga terlaksananya PKL ke depannya dapat memberikan dampak yang bermanfaat.</textarea>
                     </div>
                 </div>
                 <div class="col-md-4">
